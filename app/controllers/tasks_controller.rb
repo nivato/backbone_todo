@@ -58,9 +58,11 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
-
+    @task.name = params[:task][:name]
+    @task.completed = params[:task][:completed]
+    
     respond_to do |format|
-      if @task.update_attributes(params[:task])
+      if @task.save
         format.html
         format.json { head :no_content }
       else
