@@ -46,3 +46,16 @@ a { text-decoration: none; color: #005893; }
 a:hover { text-decoration: underline; }
 
 label { font-weight: bold; color: #007ACC; }
+
+input {
+  background-color: #fff;
+  border:none;
+  font-size: 13px;
+}
+
+.custom-input {
+  height: 30px;
+  background:url('input.png') no-repeat;
+  padding: 1px;
+  padding-left: 4px;
+}

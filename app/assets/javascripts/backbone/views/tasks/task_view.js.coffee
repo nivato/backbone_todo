@@ -33,12 +33,13 @@ class BackboneTodo.Views.Tasks.TaskView extends Backbone.View
   edit_name: () ->
     input_value = @$(".task-name").text()
     @$(".task-name").text("")
-    @$(".task-name").html("<input type='text' class='edit-name' value='#{input_value}' />")
+    @$(".task-name").html("<div class='custom-input'><input type='text' class='edit-name' value='#{input_value}' /></div>")
     @$(".task-name").attr("class", "task-name-editable")
     @$(".edit-name").focus()
 
   focusout_edit_name: () =>
     @$(".edit-name").remove()
+    @$(".custom-input").remove()
     @$(".task-name-editable").text(@model.get("name"))
     @$(".task-name-editable").attr("class", "task-name")
 
