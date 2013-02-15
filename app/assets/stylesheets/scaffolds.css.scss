@@ -4,12 +4,15 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  background-image:url('grad.png');
+  background-repeat:repeat-x;
 }
 
 #tasks {
   align: center;
   padding-left: 100px;
   padding-right: 100px;
+  padding-top: 70px;
 }
 
 table {
@@ -27,6 +30,8 @@ table {
 }
 
 td { padding: 3px; }
+td.completed, td.remove { text-align: center; padding: 1px; }
+.completed-th, .remove-th { width: 100px; }
 
 table, tr, td { border: 1px solid #007ACC; }
 
