@@ -4,8 +4,11 @@ class BackboneTodo.Views.Tasks.TaskView extends Backbone.View
   template: JST["backbone/templates/tasks/task"]
 
   events:
-    "click a.destroy" : "destroy"
-    "click .completed" : "update_completed"
+    "click a.destroy"       : "destroy"
+    "click .completed"      : "update_completed"
+    "click .task-name"      : "edit_name"
+    "focusout .edit-name"   : "focusout_edit_name"
+    "keypress .edit-name"   : "update_name"
 
   tagName: "tr"
 
@@ -26,3 +29,19 @@ class BackboneTodo.Views.Tasks.TaskView extends Backbone.View
 
   update_view_completed: () =>
     @$(".completed").text(@model.get("completed"))
+
+  edit_name: () ->
+    input_value = @$(".task-name").text()
+    @$(".task-name").text("")
+    @$(".task-name").html("<input type='text' class='edit-name' value='#{input_value}' />")
+    @$(".task-name").attr("class", "task-name-editable")
+    @$(".edit-name").focus()
+
+  focusout_edit_name: () =>
+    @$(".edit-name").remove()
+    @$(".task-name-editable").text(@model.get("name"))
+    @$(".task-name-editable").attr("class", "task-name")
+
+  update_name: (event) ->
+    return if event.which != 13
+    @model.save(name: @$(".edit-name").val(), {silent: true, wait: true, success: @focusout_edit_name})
