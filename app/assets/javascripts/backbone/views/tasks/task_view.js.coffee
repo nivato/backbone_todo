@@ -28,7 +28,7 @@ class BackboneTodo.Views.Tasks.TaskView extends Backbone.View
       @model.save(completed: true, {silent: true, wait: true, success: @update_view_completed})
 
   update_view_completed: () =>
-    @$(".completed").html("<img src='assets/#{@model.get('completed')}.png' />" )
+    @$(".completed").html("<a href='#'><img src='assets/#{@model.get('completed')}.png' /></a>" )
 
   edit_name: () ->
     input_value = @$(".task-name").text()

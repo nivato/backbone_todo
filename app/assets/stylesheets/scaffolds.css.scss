@@ -22,9 +22,6 @@ table {
   width: 600px;
   align: center;
   border-collapse: collapse;
-}
-
-table {
   padding: 0px;
   margin: 0px;
 }
@@ -41,21 +38,23 @@ th {
 }
 
 h2 { color: #007ACC; }
-
-a { text-decoration: none; color: #005893; }
-a:hover { text-decoration: underline; }
-
 label { font-weight: bold; color: #007ACC; }
 
 input {
+  width: 140px;
   background-color: #fff;
   border:none;
   font-size: 13px;
 }
 
 .custom-input {
-  height: 30px;
+  width: 145px;
+  height: 23px;
   background:url('input.png') no-repeat;
   padding: 1px;
   padding-left: 4px;
+  padding-top: 2px;
+  margin: 0px;
 }
+
+.add { display: inline-block; }
